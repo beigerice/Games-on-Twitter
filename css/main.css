@@ -1,0 +1,129 @@
+body {
+  font-family: "Lato", Helvetica, sans-serif;
+  font-weight: 300; }
+
+.bg {
+  background: linear-gradient(-180deg, #5582BD 0%, #773C97 100%) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 60px; }
+
+.container-shadow {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18), 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  background-color: #363642; }
+
+.left-sidebar {
+  background-color: #363642;
+  min-height: 500px;
+  height: 100%;
+  padding: 0; }
+  .left-sidebar .title-container {
+    background-color: #27CFE7;
+    color: #ffffff;
+    box-shadow: 3px 0px 8px 0px rgba(0, 0, 0, 0.05), 1px 0px 2px 0px rgba(0, 0, 0, 0.12);
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px; }
+  .left-sidebar .game-list .game-title {
+    line-height: 80px;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer; }
+    .left-sidebar .game-list .game-title:hover {
+      color: #ffffff;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+  .left-sidebar .game-list .game-title.active {
+    color: #ffffff; }
+
+.right-container {
+  background-color: #F8F8F8;
+  min-height: 500px;
+  padding: 0; }
+  .right-container .tags-bar {
+    height: 100px;
+    padding-left: 30px;
+    background: #F0F0F0;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.09); }
+    .right-container .tags-bar .title {
+      line-height: 100px;
+      font-size: 18px;
+      color: #7B7B83; }
+    .right-container .tags-bar .tags {
+      margin-top: 40px; }
+    .right-container .tags-bar .tag {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      border-radius: 3px;
+      padding: 9px 15px;
+      background: #FDFDFE;
+      border: 1px solid #D4D4D8;
+      margin-right: 15px;
+      font-size: 13px;
+      color: #545454; }
+      .right-container .tags-bar .tag:hover {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        color: #ffffff;
+        background-color: #27CFE7;
+        border: none; }
+    .right-container .tags-bar .tag.active {
+      background: #27CFE7;
+      color: #fff;
+      border: none; }
+  .right-container .tweets-analysis {
+    margin-left: 56px;
+    margin-top: 56px; }
+    .right-container .tweets-analysis h2 {
+      font-weight: 300;
+      color: #B0B0BB;
+      margin-bottom: 48px; }
+    .right-container .tweets-analysis .sentiment-wrapper {
+      color: #7B7B83;
+      float: left;
+      width: 33.3%;
+      text-align: center; }
+      .right-container .tweets-analysis .sentiment-wrapper .positive-count,
+      .right-container .tweets-analysis .sentiment-wrapper .neutral-count,
+      .right-container .tweets-analysis .sentiment-wrapper .negative-count {
+        font-size: 27px;
+        margin-top: 16px; }
+      .right-container .tweets-analysis .sentiment-wrapper .desc {
+        font-size: 12px; }
+  .right-container .data-vis {
+    margin-top: 55px;
+    height: 280px; }
+  .right-container .related-tweets {
+    margin-left: 56px;
+    margin-top: 56px; }
+    .right-container .related-tweets h2 {
+      font-weight: 300;
+      color: #B0B0BB;
+      margin-bottom: 48px; }
+      .right-container .related-tweets h2 span.search-query {
+        margin-left: 10px;
+        color: #81818D;
+        font-style: italic;
+        font-weight: normal; }
+    .right-container .related-tweets .tweets-wrapper {
+      font-size: 18px; }
+      .right-container .related-tweets .tweets-wrapper .tweet-wrapper {
+        margin-bottom: 50px; }
+        .right-container .related-tweets .tweets-wrapper .tweet-wrapper .display-name {
+          font-weight: normal;
+          color: #81818D; }
+        .right-container .related-tweets .tweets-wrapper .tweet-wrapper .date {
+          color: #C1C1C1; }
+        .right-container .related-tweets .tweets-wrapper .tweet-wrapper .tweet {
+          color: #7B7B83; }

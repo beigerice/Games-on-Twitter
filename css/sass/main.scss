@@ -1,0 +1,223 @@
+$dark-blue: #363642;
+$light-grey: #F8F8F8;
+$light-blue: #27CFE7;
+$font-stack: 'Lato', Helvetica, sans-serif;
+
+// svg {
+// 	display:block;
+// }
+
+
+
+@mixin lato-light {
+	font-family: $font-stack;
+	font-weight: 300;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+body {
+	@include lato-light;
+}
+
+.bg {
+	background: linear-gradient(-180deg, #5582BD 0%, #773C97 100%) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  padding: 60px;
+}
+
+
+
+
+.container-shadow {
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.18), 0px 3px 6px 0px rgba(0,0,0,0.16);
+	background-color: $dark-blue;
+}
+
+
+.left-sidebar {
+	background-color: $dark-blue;
+	min-height: 500px;
+	height: 100%;
+	// box-shadow: 3px 0px 8px 0px rgba(0,0,0,0.05), 1px 0px 2px 0px rgba(0,0,0,0.12);
+	// z-index: 20;
+	padding:0;
+
+	.title-container {
+		background-color: $light-blue;
+		color: #ffffff;
+		box-shadow: 3px 0px 8px 0px rgba(0,0,0,0.05), 1px 0px 2px 0px rgba(0,0,0,0.12);
+		height: 100px;
+		// display: table-cell;
+		// width: 100%;
+		text-align: center;
+		line-height: 100px;
+		font-size: 20px;
+	}
+
+	.game-list {
+		.game-title {
+			line-height: 80px;
+			text-align: center;
+			font-size: 18px;
+			color: rgba(255,255,255,0.50);
+			cursor: pointer;
+
+			&:hover {
+				color: #ffffff;
+				@include transition(all, 0.3s, ease-in-out);
+			}
+		}
+
+		.game-title.active {
+			color: #ffffff;
+		}
+	}
+}
+
+
+.right-container {
+	background-color: $light-grey;
+	min-height: 500px;
+	padding:0;
+
+	.tags-bar {
+		$tags-bar-height: 100px;
+		height: $tags-bar-height;
+		padding-left: 30px;
+		background: #F0F0F0;
+		box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.09);
+		
+		.title {
+			line-height: $tags-bar-height;
+			font-size: 18px;
+			color: #7B7B83;
+		}
+
+		.tags {
+			margin-top: 40px;
+		}
+
+		.tag {
+			@include border-radius(3px);
+			padding: 9px 15px;
+			background: #FDFDFE;
+			border: 1px solid #D4D4D8;
+			margin-right: 15px;
+			font-size: 13px;
+			color: #545454;
+
+			&:hover {
+				@include transition(all, 0.3s, ease-in-out);
+				// color: #545454;
+				color: #ffffff;
+				background-color: $light-blue;
+				border: none;
+			}
+		}
+
+		.tag.active {
+			background: $light-blue;
+			color: #fff;
+			border: none;
+		}
+	}
+
+	@mixin title2 {
+		font-weight: 300;
+		color: #B0B0BB;
+		margin-bottom: 48px;
+	}
+
+	@mixin main-content-margin {
+		margin-left: 56px;
+		margin-top: 56px;
+	}
+
+	.tweets-analysis {
+		@include main-content-margin;
+
+		h2 {
+			@include title2;
+		}
+
+		.sentiment-wrapper {
+			color: #7B7B83;
+			float: left;
+			width: 33.3%;
+			text-align: center;
+
+			.positive-count,
+			.neutral-count,
+			.negative-count, {
+	    		font-size: 27px;
+	    		margin-top: 16px;
+	    		// margin-bottom: 12px;
+			}
+
+			.desc {
+				font-size: 12px
+			}
+		}
+
+	}
+
+	.data-vis {
+		margin-top: 55px;
+		height: 280px;
+	}
+
+	.related-tweets {
+		@include main-content-margin;
+
+		h2 {
+			@include title2;
+			span.search-query {
+				margin-left: 10px;
+				color: #81818D;
+				font-style: italic;
+				font-weight: normal;
+			}
+		}
+
+		.tweets-wrapper {
+			font-size: 18px;
+
+			.tweet-wrapper {
+				margin-bottom: 50px;
+				.display-name {
+					font-weight: normal;
+					color: #81818D;
+				}
+
+				.date {
+					color: #C1C1C1;
+				}
+
+				.tweet {
+					color: #7B7B83;
+				}
+			}
+		}
+
+
+	}
+}
+
+

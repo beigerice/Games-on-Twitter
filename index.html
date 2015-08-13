@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="JinxiApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jinxi</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap -->
+    <link href="css/nv.d3.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="bg" ng-controller="gamesController">
+
+
+  <div class="container container-shadow">
+    <div class="row">
+      <div class="col-md-2 left-sidebar">
+        <div class="title-container" ng-click="showidx()">
+          Dashboard {{ title }}
+        </div>
+        <div class="game-list">
+<!--           <div class="game-title active" ng-click="switchGame('GTA')">GTA</div>
+          <div class="game-title" ng-click="switchGame('Call of Duty')">Call of Duty</div>
+          <div class="game-title" ng-click="switchGame('Assassin Creed')">Assassin Creed</div> -->
+          <div class="game-title" ng-repeat="game in games" ng-class="{active : isActiveGame(game)}" ng-click="switchGame(game)">{{ game }}</div>
+        </div>
+      </div>
+      <div class="col-md-10 right-container">
+        <div class="tags-bar">
+            <div class="col-md-3">
+              <span class="title">Tweets Keywords</span>
+            </div>
+            <div class="col-md-7 tags">
+              <span class="tag" ng-repeat="keyword in current_keywords" ng-click="toggleKeyword(keyword)" ng-class="{active: isActiveKeyword(keyword)}">{{ keyword }}</span>
+<!--               <span class="tag active">All</span>
+              <span class="tag">Bugs</span> -->
+            </div>
+        </div>
+
+        <div class="col-md-5 tweets-analysis">
+          <h2>Tweets Sentiment</h2>
+          <div class="postive sentiment-wrapper">
+            <img src="images/positive.png" alt="">
+            <div class="positive-count">{{sentiment_count.pos}}</div>
+            <div class="desc">Positive</div>
+          </div>
+          <div class="neutral sentiment-wrapper">
+            <img src="images/neutral.png" alt="">
+            <div class="neutral-count">{{sentiment_count.neu}}</div>
+            <div class="desc">Neutral</div>
+          </div>
+          <div class="negative sentiment-wrapper">
+            <img src="images/negative.png" alt="">
+            <div class="negative-count">{{sentiment_count.neg}}</div>
+            <div class="desc">Negative</div>
+          </div>
+        </div>
+        <div class="col-md-6 data-vis" id="chart1">
+          <!-- 在这里插入数据可视化 -->
+        </div>
+        <div class="col-md-10 related-tweets">
+          <h2>
+            <span class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle>
+                {{selected_sentiment}}
+              </a>
+              <ul class="dropdown-menu">
+                <li ng-repeat="choice in sentiment_choices">
+                  <a href ng-click="switchSentiment(choice)">{{choice}}</a>
+                </li>
+              </ul>
+            </span>
+            Tweets Regarding<span class="search-query">{{ searchQuery }}</span>
+            <span class="dropdown" dropdown on-toggle="toggled(open)">
+              <a href class="dropdown-toggle" dropdown-toggle>
+                {{selected_month}}
+              </a>
+              <ul class="dropdown-menu">
+                <li ng-repeat="choice in date_choices">
+                  <a href ng-click="switchMonth(choice)">{{choice}}</a>
+                </li>
+              </ul>
+            </span>
+          </h2>
+          <div class="tweets-wrapper">
+            <div class="tweet-wrapper row" ng-repeat="tweet in tweets_to_show">
+              <div class="col-md-2">
+                <span class="display-name">{{tweet[1]}}</span>
+                <!-- <span class="date">Feb 6, 2015</span> -->
+              </div>
+              <div class="col-md-10 tweet">
+                {{tweet[0]}}
+                <!-- Thanks @Rockwell_Group and @CitizenM for joining the #ModernMonday chat today! See everyone next week. -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/jquery.matchHeight.js" type="text/javascript"></script> -->
+    
+    
+
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/angular-cookies.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="js/nv.d3.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

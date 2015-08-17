@@ -37,9 +37,6 @@
         },function(){
             d3.selectAll(".nv-point").on('click', function(e){
                 idx = d3.time.format('%Y-%m')(new Date(e['x']));
-                // sent_count(Minecraft,undefined,idx);
-                // show_tweet(Minecraft,'youtube','pos',idx); 
-                console.log(idx);
                 $.cookie("idx", idx); 
             });
         });
@@ -60,9 +57,6 @@
                         neg += game[c]['neg'].length;
                     }
                 }
-                console.log(neu);
-                console.log(pos);
-                console.log(neg);
             }
             else {
                 for (c in game) {
@@ -83,11 +77,7 @@
                            }
                         }   
                     }                                     
-                }
-                console.log(neu);
-                console.log(pos);
-                console.log(neg);       
-
+                }      
             }
         }
         else {
@@ -116,10 +106,7 @@
                         }
                     }   
                 }                             
-            }
-            console.log(neu);
-            console.log(pos);
-            console.log(neg);                         
+            }                        
         }
                 var all_count = {
                     "neu": neu,
@@ -128,37 +115,6 @@
                 };
                 return all_count;
     }
-    // function show_tweet(game, keyword, sentiment, month_index) {
-    //     var magic = month_index;
-    //     tweet_array = [];
-    //     if (magic == undefined) {
-    //         m = '2015-02';
-    //     }
-    //     else {
-    //         m = magic;
-    //     }
-
-    //      if (m in game) {
-    //         if (keyword == undefined) {
-    //             for (label in game[m]) {
-    //                 for (var e=0; e<game[m][label].length; e++) {
-    //                     tweet_array.push([game[m][label][e][1],game[m][label][e][2]])  
-    //                 }                        
-    //             }
-    //         }
-    //         else {
-    //             for (label in game[m]) {
-    //                 for (var e=0; e<game[m][label].length; e++) {
-    //                     if (game[m][label][e][1].search(new RegExp(keyword, 'i')) != -1) {
-    //                         tweet_array.push([game[m][label][e][1],game[m][label][e][2]]) 
-    //                     }                         
-    //                 }                          
-    //             }                  
-    //         }
-    //     }
-    //     console.log(tweet_array);
-    //     return tweet_array;
-    // }
        function show_tweet(game, keyword, sentiment, magic) {
             tweet_array = [];
             if (magic == undefined) {
@@ -167,12 +123,6 @@
             else {
                 m = magic;
             }
-            // if (sentiment == undefined) {
-            //     label = 'neg';
-            // }
-            // else {
-            //     label = sentiment;
-            // }
             if (m in game) {
                 if (keyword == undefined) {
                     if (sentiment == undefined) {
@@ -205,13 +155,9 @@
                     }               
                 }
             }
-            console.log(tweet_array);
             return tweet_array;
         }
     idx = "2015-02";
-
-    // sent_count(Minecraft,undefined,idx);
-    // show_tweet(Minecraft,'youtube','neutral',idx); 
 
     month = ["2014-01","2014-02","2014-03","2014-04","2014-05","2014-06","2014-07","2014-08","2014-09","2014-10","2014-11","2014-12","2015-01","2015-02"];
     month_new = [new Date(2014, 0),new Date(2014, 1),new Date(2014, 2),new Date(2014, 3),new Date(2014, 4),new Date(2014, 5),new Date(2014, 6),new Date(2014, 7),new Date(2014, 8),new Date(2014, 9),new Date(2014, 10),new Date(2014, 11),new Date(2015, 0),new Date(2015, 1)];
